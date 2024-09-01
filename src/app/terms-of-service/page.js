@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 export default function TermsOfUse() {
   return (
     <div className="min-h-screen bg-white text-gray-800 p-6 md:px-[8rem]">
-      <Head>Terms of Service - Almond</Head>
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
