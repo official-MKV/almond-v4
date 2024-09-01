@@ -7,7 +7,41 @@ const AlmondNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHomeSection, setIsHomeSection] = useState(true);
+  const redirectToAppStore = () => {
+    // Check if the user is on a mobile device
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
 
+    if (isMobile) {
+      // Check if the device is running Android
+      const isAndroid = /Android/i.test(navigator.userAgent);
+
+      // Check if the device is running iOS
+      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      if (isAndroid) {
+        // Redirect to Google Play Store
+        window.location.href =
+          "https://play.google.com/store/apps/details?id=com.hillary3211.almond";
+      } else if (isIOS) {
+        // Redirect to Apple App Store
+        window.location.href =
+          "https://apps.apple.com/ng/app/almond-app/id6479360310";
+      } else {
+        // For other mobile devices, you might want to show an alert or redirect to a default page
+        alert(
+          "Sorry, we couldn't detect your device type. Please visit our website for more information."
+        );
+      }
+    } else {
+      // For desktop users, you might want to show a QR code or provide links to both stores
+      alert(
+        'Please visit this page on your mobile device to download our app, or search for "Almond App" in your device\'s app store.'
+      );
+    }
+  };
   const navItems = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about-us" },
@@ -90,6 +124,7 @@ const AlmondNavbar = () => {
               className="bg-[#662D91] text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 flex items-center space-x-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={redirectToAppStore}
             >
               <span>Get Almond Finance App</span>
             </motion.button>
@@ -137,6 +172,7 @@ const AlmondNavbar = () => {
               className="w-full bg-[#662D91] text-white px-4 py-2 rounded-full hover:bg-purple-700 transition duration-300 flex items-center justify-center space-x-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={redirectToAppStore}
             >
               <span>Get Almond Finance App</span>
             </motion.button>

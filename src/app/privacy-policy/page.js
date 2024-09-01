@@ -6,9 +6,6 @@ import Head from "next/head";
 const PrivacyPolicy = () => {
   return (
     <>
-      <Head>
-        <title>Privacy Policy - Almond</title>
-      </Head>
       <motion.div
         className="min-h-screen "
         initial={{ opacity: 0 }}

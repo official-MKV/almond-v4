@@ -18,6 +18,41 @@ import FAQSection from "@/components/AlmondFAQ";
 import CustomizedSavingsComponent from "@/components/AlmondSaving";
 import AlmondNewsBlogSection from "@/components/BlogSection";
 export default function Home() {
+  const redirectToAppStore = () => {
+    // Check if the user is on a mobile device
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+
+    if (isMobile) {
+      // Check if the device is running Android
+      const isAndroid = /Android/i.test(navigator.userAgent);
+
+      // Check if the device is running iOS
+      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      if (isAndroid) {
+        // Redirect to Google Play Store
+        window.location.href =
+          "https://play.google.com/store/apps/details?id=com.hillary3211.almond";
+      } else if (isIOS) {
+        // Redirect to Apple App Store
+        window.location.href =
+          "https://apps.apple.com/ng/app/almond-app/id6479360310";
+      } else {
+        // For other mobile devices, you might want to show an alert or redirect to a default page
+        alert(
+          "Sorry, we couldn't detect your device type. Please visit our website for more information."
+        );
+      }
+    } else {
+      // For desktop users, you might want to show a QR code or provide links to both stores
+      alert(
+        'Please visit this page on your mobile device to download our app, or search for "Almond App" in your device\'s app store.'
+      );
+    }
+  };
   const partners = [
     { img: "/assets/partner-1.svg" },
     { img: "/assets/partner-2.png" },
@@ -52,6 +87,7 @@ export default function Home() {
               <motion.button
                 className="cursor-pointer text-lg sm:text-xl w-full sm:w-fit text-white px-8 sm:px-11 py-4 sm:py-5 rounded-full bg-[#662D91] hover:bg-purple-700 transition duration-300"
                 whileHover={{ scale: 1.05 }}
+                onClick={redirectToAppStore}
                 whileTap={{ scale: 0.95 }}
               >
                 Download Now

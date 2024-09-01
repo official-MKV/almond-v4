@@ -1,7 +1,6 @@
-"use client";
 import { motion } from "framer-motion";
-import Head from "next/head";
 
+export const metadata = { title: "Terms of Service of Almond" };
 export default function TermsOfUse() {
   return (
     <div className="min-h-screen bg-white text-gray-800 p-6 md:px-[8rem]">
