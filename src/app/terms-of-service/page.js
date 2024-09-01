@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 
 export const metadata = { title: "Terms of Service of Almond" };
